@@ -1,0 +1,33 @@
+#!/bin/bash
+
+case $1 in 
+    "135" )
+    host="" && password=Hu;;
+    "136" )
+    host="" && password=Hu;;
+    "137" )
+    host="" && password=Hu;;
+    "138" )
+    host="" && password=Hu;;
+    "161" )
+    host="" && password=do;;
+    "162" )
+    host="" && password=do;;
+    "163" )
+    host="" && password=do;;
+    "164" )
+    host="" && password=do;;
+    "131" )
+    host="" && password=Hu;;
+    "132" )
+    host="" && password=Hu;;
+    * )
+    echo "usage: goto 135/136/137/138/161/162/163/164"
+    exit 1;;
+esac
+
+port=22022
+username=logwatch
+
+chmod +x ~/cmd/expect_ssh
+~/cmd/expect_ssh $host  $port $username $password
