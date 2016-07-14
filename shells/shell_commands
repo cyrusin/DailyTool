@@ -1,2 +1,5 @@
 #抓取HTTP包
-tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854
+tcpdump  -XvvennSs 0 -i eth0 'tcp[20:2]=0x4745 or tcp[20:2]=0x4854'
+
+#抓取HTTP Request Headers
+tcpdump -n -S -s 0 -A 'tcp dst port 80' | grep -B3 -A10 "GET /"
