@@ -14,5 +14,7 @@ Some useful tools.
 ---------
 `./shells` is dir with some useful shell scripts.
 `./shells/shell_commands`is collection of some complicated shell command.
-Now has:
-1. tcpdump
+Now has :
+1. tcpdump get tcp package
+2. tcpdump get http request headers
+
