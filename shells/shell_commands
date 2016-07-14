@@ -1,5 +1,8 @@
-#抓取HTTP包
+#1. 抓取HTTP包
 tcpdump  -XvvennSs 0 -i eth0 'tcp[20:2]=0x4745 or tcp[20:2]=0x4854'
 
-#抓取HTTP Request Headers
+#2. 抓取HTTP Request Headers
 tcpdump -n -S -s 0 -A 'tcp dst port 80' | grep -B3 -A10 "GET /"
+
+#2. 打印所有源或目的端口是80, 网络层协议为IPv4, 并且含有数据,而不是SYN,FIN以及ACK-only等不含数据的数据包
+tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
